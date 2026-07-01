@@ -1,0 +1,155 @@
+# ============================================
+# 🔒 SECURITY - Secrets und Credentials
+# ============================================
+application-local.yml
+application-dev.yml
+application-prod.yml
+application-*.local.yml
+application-*.dev.yml
+application-*.prod.yml
+!application-example.yml
+*.secret.yml
+*.credentials.yml
+secrets/
+credentials/
+
+# ============================================
+# 🛠️ Build Tools
+# ============================================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.tmp
+*.pid
+*.seed
+*.lock
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Gradle
+.gradle/
+build/
+gradle-wrapper.jar
+!gradle-wrapper.jar
+
+# ============================================
+# 📝 IDE Konfigurationen
+# ============================================
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+.idea_modules/
+*.swp
+*.swo
+
+# Eclipse / STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+*.launch
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# ============================================
+# 🖥️ Betriebssystem Dateien
+# ============================================
+.DS_Store
+Thumbs.db
+*.bak
+*.orig
+*.old
+*.tmp
+
+# ============================================
+# 📦 Logs und temporäre Dateien
+# ============================================
+logs/
+*.log
+*.gz
+*.zip
+*.rar
+
+# ============================================
+# 🧪 Testing
+# ============================================
+test-output/
+*.test
+*.test.log
+
+# ============================================
+# ⚙️ Application Properties
+# ============================================
+*.properties.local
+*.properties.dev
+*.properties.prod
+!application-example.properties
+
+# ============================================
+# 🔑 Sensitive Data
+# ============================================
+**/secrets/**
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/*.jks
+**/credentials/**
+**/certificates/**
+
+# ============================================
+# 🐳 Docker
+# ============================================
+docker-compose.override.yml
+*.dockerignore
+.Dockerfile
+docker/.env
+*.env
+!.env.example
+
+# ============================================
+# 📊 Datenbanken
+# ============================================
+*.db
+*.sqlite
+*.h2.db
+*.mv.db
+
+# ============================================
+# 🔄 Versionskontrolle
+# ============================================
+*.orig
+*.rej
+*.patch
+*.diff
+
+# ============================================
+# 📚 Dokumentation
+# ============================================
+HELP.md
+*.md.tmp
