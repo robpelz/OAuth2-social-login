@@ -32,5 +32,21 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
 
+logging:
+  level:
+    com.robtech.oauth2: DEBUG
+    org.springframework.security: WARN
+    org.springframework.security.oauth2: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %-5level - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %-5level [%thread] - %logger{36} - %msg%n"
+  file:
+    name: logs/social-login.log
+    max-size: 10MB
+    max-history: 7
+
 server:
   port: 8080
+  error:
+    whitelabel:
+      enabled: false  # Eigene Fehlerseiten verwenden

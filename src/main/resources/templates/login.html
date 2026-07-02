@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Login</title>
 
-    <!-- Font Awesome über WebJars -->
-    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.2/css/all.min.css}">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* ===== Grundlegende Reset-Styles ===== */
         * {
             margin: 0;
             padding: 0;
@@ -17,7 +16,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -28,7 +27,7 @@
             overflow: hidden;
         }
 
-        /* ===== Hintergrundanimation ===== */
+        /* Hintergrund-Animation */
         body::before {
             content: '';
             position: absolute;
@@ -46,20 +45,18 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* ===== Login-Container ===== */
         .login-container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             padding: 48px 40px 40px;
             border-radius: 24px;
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             width: 100%;
             max-width: 420px;
             position: relative;
             z-index: 1;
             animation: slideUp 0.6s ease-out;
+            text-align: center;
         }
 
         @keyframes slideUp {
@@ -73,33 +70,25 @@
             }
         }
 
-        /* ===== Header ===== */
-        .login-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .login-header .logo-icon {
+        .logo-icon {
             font-size: 48px;
             color: #667eea;
             margin-bottom: 12px;
             display: block;
         }
 
-        .login-header h1 {
+        h1 {
             color: #1a1a2e;
             font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            margin-bottom: 8px;
         }
 
-        .login-header p {
+        .subtitle {
             color: #6b7280;
             font-size: 15px;
-            margin-top: 8px;
+            margin-bottom: 30px;
         }
 
-        /* ===== Meldungen ===== */
         .message {
             padding: 12px 16px;
             border-radius: 10px;
@@ -108,12 +97,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            animation: fadeIn 0.4s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .message.error {
@@ -128,11 +111,41 @@
             border-left: 4px solid #22c55e;
         }
 
-        .message i {
-            font-size: 18px;
+        .logout-section {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
         }
 
-        /* ===== OAuth Buttons ===== */
+        .logout-section .user-info {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .logout-section .user-info strong {
+            color: #1a1a2e;
+        }
+
+        .btn-logout {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            background: #fee2e2;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2);
+        }
+
         .oauth-buttons {
             display: flex;
             flex-direction: column;
@@ -140,7 +153,7 @@
         }
 
         .oauth-btn {
-            display: flex;
+            display: flex !important;
             align-items: center;
             justify-content: center;
             padding: 16px 20px;
@@ -148,16 +161,15 @@
             border-radius: 12px;
             font-size: 16px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             color: white;
             gap: 14px;
+            width: 100%;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        /* ===== Button-Hover-Effekt ===== */
         .oauth-btn::before {
             content: '';
             position: absolute;
@@ -181,46 +193,35 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
         }
 
-        .oauth-btn:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        /* ===== GitHub Button ===== */
         .oauth-btn.github {
             background: #24292e;
         }
 
         .oauth-btn.github:hover {
             background: #2f363d;
-            box-shadow: 0 12px 30px rgba(36, 41, 46, 0.4);
         }
 
         .oauth-btn.github i {
             font-size: 26px;
         }
 
-        /* ===== Google Button ===== */
         .oauth-btn.google {
             background: #ea4335;
         }
 
         .oauth-btn.google:hover {
             background: #d33426;
-            box-shadow: 0 12px 30px rgba(234, 67, 53, 0.4);
         }
 
         .oauth-btn.google i {
             font-size: 24px;
         }
 
-        /* ===== Button-Label ===== */
         .oauth-btn .btn-label {
             flex: 1;
             text-align: center;
-            letter-spacing: 0.3px;
         }
 
-        /* ===== Divider ===== */
         .divider {
             display: flex;
             align-items: center;
@@ -238,16 +239,10 @@
             background: linear-gradient(to right, transparent, #d1d5db, transparent);
         }
 
-        /* ===== Footer ===== */
         .login-footer {
-            text-align: center;
             margin-top: 24px;
             font-size: 13px;
             color: #9ca3af;
-        }
-
-        .login-footer i {
-            margin: 0 4px;
         }
 
         .login-footer .heart {
@@ -260,56 +255,16 @@
             50% { transform: scale(1.2); }
         }
 
-        /* ===== Responsive Design ===== */
         @media (max-width: 480px) {
             .login-container {
                 padding: 32px 20px 28px;
             }
-
-            .login-header h1 {
+            h1 {
                 font-size: 24px;
             }
-
             .oauth-btn {
                 padding: 14px 16px;
                 font-size: 14px;
-            }
-
-            .oauth-btn.github i {
-                font-size: 22px;
-            }
-
-            .oauth-btn.google i {
-                font-size: 20px;
-            }
-        }
-
-        /* ===== Dark Mode Support ===== */
-        @media (prefers-color-scheme: dark) {
-            .login-container {
-                background: rgba(26, 26, 46, 0.95);
-                backdrop-filter: blur(20px);
-            }
-
-            .login-header h1 {
-                color: #f3f4f6;
-            }
-
-            .login-header p {
-                color: #9ca3af;
-            }
-
-            .divider {
-                color: #6b7280;
-            }
-
-            .divider::before,
-            .divider::after {
-                background: linear-gradient(to right, transparent, #4b5563, transparent);
-            }
-
-            .login-footer {
-                color: #6b7280;
             }
         }
     </style>
@@ -317,48 +272,58 @@
 <body>
 
 <div class="login-container">
-    <!-- ===== Header ===== -->
-    <div class="login-header">
-        <span class="logo-icon">🔐</span>
-        <h1>Willkommen zurück</h1>
-        <p>Melde dich mit deinem Social Media Account an</p>
-    </div>
 
-    <!-- ===== Fehlermeldung ===== -->
+    <!-- Header -->
+    <span class="logo-icon">🔐</span>
+    <h1>Willkommen zurück</h1>
+    <p class="subtitle">Melde dich mit deinem Social Media Account an</p>
+
+    <!-- Fehlermeldung -->
     <div th:if="${errorMessage}" class="message error">
         <i class="fas fa-exclamation-circle"></i>
         <span th:text="${errorMessage}">Anmeldung fehlgeschlagen</span>
     </div>
 
-    <!-- ===== Erfolgsmeldung (Logout) ===== -->
+    <!-- Erfolgsmeldung (Logout) -->
     <div th:if="${logoutMessage}" class="message success">
         <i class="fas fa-check-circle"></i>
         <span th:text="${logoutMessage}">Erfolgreich abgemeldet</span>
     </div>
 
-    <!-- ===== OAuth Buttons ===== -->
-    <div class="oauth-buttons">
-        <!-- GitHub -->
-        <a href="/oauth2/authorization/github" class="oauth-btn github">
-            <i class="fab fa-github"></i>
-            <span class="btn-label">Mit GitHub anmelden</span>
-            <i class="fas fa-chevron-right" style="font-size: 14px; opacity: 0.6;"></i>
-        </a>
-
-        <!-- Google -->
-        <a href="/oauth2/authorization/google" class="oauth-btn google">
-            <i class="fab fa-google"></i>
-            <span class="btn-label">Mit Google anmelden</span>
-            <i class="fas fa-chevron-right" style="font-size: 14px; opacity: 0.6;"></i>
+    <!-- Logout-Bereich (nur für echte OAuth2-Benutzer) -->
+    <div th:if="${#authentication != null && #authentication.authenticated && #authentication.name != 'anonymousUser'}"
+         class="logout-section">
+        <div class="user-info">
+            <i class="fas fa-user-check" style="color: #22c55e;"></i>
+            Angemeldet als: <strong th:text="${#authentication.name}">User</strong>
+        </div>
+        <a href="/logout" class="btn-logout">
+            <i class="fas fa-sign-out-alt"></i> Abmelden
         </a>
     </div>
 
-    <!-- ===== Divider ===== -->
-    <div class="divider">
-        <span>oder</span>
+    <!-- OAuth Buttons (nur wenn NICHT eingeloggt) -->
+    <div th:if="${#authentication == null || !#authentication.authenticated || #authentication.name == 'anonymousUser'}">
+        <div class="oauth-buttons">
+            <a href="/oauth2/authorization/github" class="oauth-btn github">
+                <i class="fab fa-github"></i>
+                <span class="btn-label">Mit GitHub anmelden</span>
+                <i class="fas fa-chevron-right" style="font-size: 14px; opacity: 0.5;"></i>
+            </a>
+
+            <a href="/oauth2/authorization/google" class="oauth-btn google">
+                <i class="fab fa-google"></i>
+                <span class="btn-label">Mit Google anmelden</span>
+                <i class="fas fa-chevron-right" style="font-size: 14px; opacity: 0.5;"></i>
+            </a>
+        </div>
+
+        <div class="divider">
+            <span>oder</span>
+        </div>
     </div>
 
-    <!-- ===== Footer ===== -->
+    <!-- Footer -->
     <div class="login-footer">
         <i class="fas fa-shield-alt"></i>
         Sicher &amp; verschlüsselt

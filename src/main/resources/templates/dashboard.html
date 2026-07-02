@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .dashboard {
+            background: white;
+            padding: 48px 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .dashboard .avatar {
+            font-size: 80px;
+            color: #667eea;
+        }
+        .dashboard h1 {
+            color: #1a1a2e;
+            margin: 12px 0 8px;
+        }
+        .dashboard .user {
+            color: #667eea;
+            font-weight: bold;
+        }
+        .dashboard .subtitle {
+            color: #6b7280;
+            font-size: 15px;
+        }
+        .btn-logout {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 12px 30px;
+            background: #ef4444;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-logout:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+        .btn-logout i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="avatar">👤</div>
+    <h1>Willkommen, <span class="user" th:text="${user}">User</span>!</h1>
+    <p class="subtitle">Du bist erfolgreich eingeloggt.</p>
+    <a href="/logout" class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i> Abmelden
+    </a>
+</div>
+</body>
+</html>
