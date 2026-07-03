@@ -1,9 +1,19 @@
 # 🔐 OAuth2 Social Login
 
-[![Java](https://shields.io)](https://adoptium.net)
-[![Spring Boot](https://shields.io)](https://spring.io)
-[![OAuth2](https://shields.io)](https://oauth.net)
-[![License](https://shields.io)](LICENSE)
+<a href="https://adoptium.net" target="_blank">
+  <img src="https://shields.io" alt="Java">
+</a>
+<a href="https://spring.io" target="_blank">
+  <img src="https://shields.io" alt="Spring Boot">
+</a>
+<a href="https://oauth.net" target="_blank">
+  <img src="https://shields.io" alt="OAuth2">
+</a>
+<a href="LICENSE">
+  <img src="https://shields.io" alt="License">
+</a>
+
+
 
 
 
