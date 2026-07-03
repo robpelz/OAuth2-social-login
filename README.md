@@ -1,17 +1,34 @@
 # 🔐 OAuth2 Social Login
 
-[![Java](https://badgen.net)](https://adoptium.net)
-[![Spring Boot](https://badgen.net)](https://spring.io)
-[![OAuth2](https://badgen.net)](https://oauth.net)
-[![License](https://badgen.net)](LICENSE)
+[![Java](https://badgen.net/badge/Java/21/orange)](https://adoptium.net)
+[![Spring Boot](https://badgen.net/badge/Spring%20Boot/3.3.2/brightgreen)](https://spring.io)
+[![OAuth2](https://badgen.net/badge/OAuth2/GitHub%20%26%20Google/blue)](https://oauth.net)
+[![License](https://badgen.net/badge/License/MIT/green)](LICENSE)
 
+> **Spring Boot 3.3** Referenz-Implementierung für **OAuth2 Social Login** (GitHub & Google) mit sicherem Session-Management, maßgeschneiderter Login-Page und 100% Testabdeckung.
 
+---
 
+## 📸 Screenshots
 
+### 🔐 Login-Seite
+Die benutzerdefinierte Login-Seite mit GitHub und Google OAuth2.
 
+![Login-Seite](images/screen.png)
 
+---
 
-Schlanke **Spring Boot 3.3** Referenz-Implementierung für **OAuth2 Social Login** (GitHub & Google) mit sicherem Session-Management, maßgeschneiderter Login-Page und 100% Testabdeckung.
+### ✅ Erfolgreicher Login
+Nach erfolgreicher Authentifizierung wird der Benutzer zum Dashboard weitergeleitet.
+
+![Login Erfolg](images/loginsuccess.png)
+
+---
+
+### 🚪 Logout
+Über den Logout-Button kann sich der Benutzer sicher abmelden.
+
+![Logout](images/logout.png)
 
 ---
 
@@ -31,7 +48,7 @@ spring:
             client-secret: DEIN_GITHUB_SECRET
           google:
             client-id: DEINE_GOOGLE_ID
-            client-secret: DEIN_GOOGLE_SECRET
+            client-secret: DEIN_GOOGLE_SECRETlient-secret: DEIN_GOOGLE_SECRET
 ```
 
 ### 2. App starten
