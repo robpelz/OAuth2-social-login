@@ -6,6 +6,7 @@
 [![License](https://shields.io)](LICENSE)
 
 
+
 Schlanke **Spring Boot 3.3** Referenz-Implementierung für **OAuth2 Social Login** (GitHub & Google) mit sicherem Session-Management, maßgeschneiderter Login-Page und 100% Testabdeckung.
 
 ---
